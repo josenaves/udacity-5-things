@@ -1,5 +1,19 @@
-<TextView
-    android:id="@+id/section_label"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <TextView
+        android:id="@+id/section_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <Button android:id="@+id/buttonOpen"
+        android:text="Abrir Oi Cloud"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:onClick="onClick"/>
+
+</LinearLayout>

@@ -2,6 +2,10 @@ package com.josenaves.udacity.fivethings;
 
 import java.util.Locale;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -122,32 +126,48 @@ public class MainActivity extends FragmentActivity {
             @LayoutRes
             int layout = R.layout.fragment_word_1;
 
+            int color = R.color.red;
+
             Bundle args = getArguments();
             switch (args.getInt(ARG_SECTION_NUMBER)) {
                 case 1:
                     layout = R.layout.fragment_word_1;
+                    color = R.color.red;
                     break;
 
                 case 2:
                     layout = R.layout.fragment_word_2;
+                    color = R.color.blue;
                     break;
 
                 case 3:
                     layout = R.layout.fragment_word_2;
+                    color = R.color.green;
                     break;
 
                 case 4:
                     layout = R.layout.fragment_word_2;
+                    color = R.color.yellow;
                     break;
 
                 case 5:
                     layout = R.layout.fragment_word_2;
+                    color = R.color.purple;
             }
             View rootView = inflater.inflate(layout, container, false);
             TextView textView = (TextView)rootView.findViewById(R.id.section_label);
             textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
 
+            // seta a cor do fragment
+            rootView.setBackgroundColor(getResources().getColor(color));
+
             return rootView;
         }
+    }
+
+    public void onClick(View view) {
+        String url = "https://www.oicloud.com.br/#!/ajuda";
+        Uri data = Uri.parse(url);
+        startActivity(new Intent(Intent.ACTION_VIEW, data));
     }
 }
